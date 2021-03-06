@@ -4,3 +4,4 @@ RUN mkdir /var/httrack && cd /var/httrack && httrack --structure=0 -v -w https:/
 
 FROM nginx:1.19.6-alpine
 COPY --from=build /var/httrack/tecnologia.exploradoresdemadrid.org/ /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/nginx.conf
