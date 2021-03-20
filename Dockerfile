@@ -1,6 +1,6 @@
 FROM ubuntu as build
 RUN apt update && apt install -y httrack 
-RUN mkdir /var/httrack && cd /var/httrack && httrack --structure=0 -v -%v2 −R3 -c10 -T20 -w http://www.exploradoresdemadrid.org/
+RUN mkdir /var/httrack && cd /var/httrack && httrack --structure=0 -v -%v1 −R3 -c10 -T20 -w http://www.exploradoresdemadrid.org/
 RUN cd /var/httrack && \
     find ./ -type f -exec sed -i '/by\sHTTrack\sWebsite\sCopier/d' {} \; && \
     find ./ -type f -exec sed -i 's/index\.html//g' {} \; && \
