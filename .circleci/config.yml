@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build & push to DockerHub 
           command: |
-            docker build -t $ORG_NAME/$IMAGE_NAME:$TAG . --add-host=www.exploradoresdemadrid.org:51.68.180.33
+            docker build --no-cache -t $ORG_NAME/$IMAGE_NAME:$TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $ORG_NAME/$IMAGE_NAME:$TAG
           no_output_timeout: 30m
