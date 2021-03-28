@@ -4,7 +4,7 @@ RUN mkdir /var/httrack && cd /var/httrack && httrack --structure=0 -v -%v1 −R3
 RUN cd /var/httrack && \
     find ./ -type f -exec sed -i '/by\sHTTrack\sWebsite\sCopier/d' {} \; && \
     find ./ -type f -exec sed -i 's/index\.html//g' {} \; && \
-    find ./ -type f -exec sed -i 's/\.html//g' {} \;
+    find ./ -type f -exec sed -i 's/\.html//g' {} \; && \
     find ./ -type f -exec sed -i 's/http:\/\/www\.exploradoresdemadrid/https:\/\/www\.exploradoresdemadrid/g' {} \;
 
 FROM nginx:1.19.6-alpine
